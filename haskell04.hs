@@ -32,11 +32,10 @@ strColor (r,g,b) = printf "rgb(%d,%d,%d)" r g b
 
 -- 5)
 genCircs :: Int -> (Int,Int) -> Int -> [(Int,Int,Int)]
---genCircs n coord r = take n [(fst coord, snd coord, r), ((fst coord) + 2, snd coord, r)..]
 genCircs n (cx,cy) r = take n [(x,cy,r) | x <- (iterate (+2) cx)]
 
 
 -- 6) ATENCAO: se forem requisitadas muitas cores diferentes ela vai ficar presa em uma execucao infinita.
 genReds :: Int -> [(Int,Int,Int)]
-genReds n = take n [(x,0,0) | x <- [2,2 + truncate (fromIntegral n*1.33)..], x < 255]
+genReds n = take n [(x,0,0) | x <- [2,2 + truncate (fromIntegral n*1.12)..], x < 255]
 
